@@ -83,6 +83,7 @@ typedef enum ShadowTopicStringType
     ShadowTopicStringTypeUpdateRejected,
     ShadowTopicStringTypeUpdateDocuments,
     ShadowTopicStringTypeUpdateDelta,
+    ShadowTopicStringTypeNamedRadarUpdate,
     ShadowTopicStringTypeMaxNum
 } ShadowTopicStringType_t;
 

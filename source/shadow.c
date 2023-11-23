@@ -72,6 +72,11 @@
 #define SHADOW_OP_GET_REJECTED               SHADOW_OP_GET SHADOW_SUFFIX_REJECTED
 
 /**
+ * @brief The string representing "/shadow/name/radar/update".
+ */
+#define SHADOW_OP_NAMED_RADAR_UPDATE          "/shadow/name/radar/update"
+
+/**
  * @brief The length of "/shadow/update/accepted".
  */
 #define SHADOW_OP_UPDATE_ACCEPTED_LENGTH     ( SHADOW_OP_UPDATE_LENGTH + SHADOW_SUFFIX_ACCEPTED_LENGTH )
@@ -110,6 +115,11 @@
  * @brief The length of "/shadow/delete/rejected".
  */
 #define SHADOW_OP_DELETE_REJECTED_LENGTH     ( SHADOW_OP_DELETE_LENGTH + SHADOW_SUFFIX_REJECTED_LENGTH )
+
+/**
+ * @brief The length of "/shadow/name/radar/update".
+ */
+#define SHADOW_OP_NAMED_RADAR_UPDATE_LENGTH   ( ( uint16_t ) ( sizeof( SHADOW_OP_NAMED_RADAR_UPDATE ) - 1U ) )
 
 /**
  * @brief Determine if the string contains the substring.
@@ -355,6 +365,10 @@ static const char * getShadowOperationString( ShadowTopicStringType_t topicType 
             shadowOperationString = SHADOW_OP_UPDATE_DOCUMENTS;
             break;
 
+        case ShadowTopicStringTypeNamedRadarUpdate:
+            shadowOperationString = SHADOW_OP_NAMED_RADAR_UPDATE;
+            break;
+
         case ShadowTopicStringTypeUpdateDelta:
         /* topicType >= ShadowTopicStringTypeMaxNum check is covered at entry of Shadow_GetTopicString. */
         default:
@@ -411,6 +425,10 @@ static uint16_t getShadowOperationLength( ShadowTopicStringType_t topicType )
 
         case ShadowTopicStringTypeUpdateDocuments:
             shadowOperationLength = SHADOW_OP_UPDATE_DOCUMENTS_LENGTH;
+            break;
+
+        case ShadowTopicStringTypeNamedRadarUpdate:
+            shadowOperationLength = SHADOW_OP_NAMED_RADAR_UPDATE_LENGTH;
             break;
 
         case ShadowTopicStringTypeUpdateDelta:
